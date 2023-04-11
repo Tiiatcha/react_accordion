@@ -62,30 +62,24 @@ function App() {
             There are 2 optional html attributes that are applied, they are
             "data-toggle-open" (Toggle) and "data-keep-open" (Keep Open)
           </p>
-          <ul className="list-disc my-4">
+          <ul className="list-disc list-outside my-4 ml-4">
             <li>
-              <div>
-                Both Attributes set to false: With this configuration, the
-                Accordion behaves as many before it have, that is, clicking on
-                the header of each item, opens that item and closses all other
-                items. In other words only one item can be open at a time.
-              </div>
+              Both Attributes set to false: With this configuration, the
+              Accordion behaves as many before it have, that is, clicking on the
+              header of each item, opens that item and closses all other items.
+              In other words only one item can be open at a time.
+            </li>
+            <li className="">
+              Toggle: If this is set to true, then as with the above
+              configuration, only one item can be open at any time however, this
+              option allows you to toggle the active item between active (open)
+              not active (closed)
             </li>
             <li>
-              <div>
-                Toggle: If this is set to true, then as with the above
-                configuration, only one item can be open at any time however,
-                this option allows you to toggle the active item between active
-                (open) not active (closed)
-              </div>
-            </li>
-            <li>
-              <div>
-                Keep Open: Like Toggle, this option allows you to toggle the
-                items between active (open) and not active (closed). However,
-                unlike the previous two configurations, you can open as many
-                items as you wish.
-              </div>
+              Keep Open: Like Toggle, this option allows you to toggle the items
+              between active (open) and not active (closed). However, unlike the
+              previous two configurations, you can open as many items as you
+              wish.
             </li>
           </ul>
           <div>
@@ -95,9 +89,9 @@ function App() {
               check boxes will toggle the relevant html attribute causing the
               configuration to take effect.
             </p>
-            <ul className="list-disc mb-4">
+            <ul className="list-inside mb-4">
               <li>
-                <div className="input_container">
+                <div className="input_container inline">
                   <input
                     type="checkbox"
                     name="toggle"
@@ -111,7 +105,7 @@ function App() {
                 </div>
               </li>
               <li>
-                <div className="input_container">
+                <div className="input_container inline">
                   <input
                     type="checkbox"
                     name="keep_open"
