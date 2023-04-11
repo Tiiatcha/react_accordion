@@ -15,8 +15,8 @@ const AccordionItem = (params) => {
     );
     const item_switch = clicked_section.querySelector(".accordion_head_switch");
     if (clicked_section.classList.contains("active")) {
-      item_switch.classList.remove("rotate-180");
-      item_switch.classList.add("rotate-0");
+      item_switch.classList.remove("rotate-0");
+      item_switch.classList.add("rotate-180");
       clicked_section.classList.remove("active");
       body_container.style.maxHeight = "0px";
     } else {

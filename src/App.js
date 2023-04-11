@@ -1,6 +1,14 @@
 import "./App.css";
 import Accordion from "./Components/accordion/Accordion.js";
 function App() {
+  const process_checkbox = (e) => {
+    const chk_box = e.target;
+    const attribute = chk_box.getAttribute("data-attribute");
+    const accordion = document.querySelector("#demo_accordion");
+    const chk_box_value = chk_box.checked ? "true" : false;
+
+    accordion.setAttribute(attribute, chk_box_value);
+  };
   let items = [
     {
       id: "item1",
@@ -42,52 +50,102 @@ function App() {
       ),
     },
   ];
+  const instructions = [
+    {
+      id: "instuctions_item_1",
+      active: false,
+      title: "About and demo options",
+      body: (
+        <div>
+          <p>This Accordion has been built with React and Tailwind CSS.</p>
+          <p>
+            There are 2 optional html attributes that are applied, they are
+            "data-toggle-open" (Toggle) and "data-keep-open" (Keep Open)
+          </p>
+          <ul className="list-disc my-4">
+            <li>
+              <div>
+                Both Attributes set to false: With this configuration, the
+                Accordion behaves as many before it have, that is, clicking on
+                the header of each item, opens that item and closses all other
+                items. In other words only one item can be open at a time.
+              </div>
+            </li>
+            <li>
+              <div>
+                Toggle: If this is set to true, then as with the above
+                configuration, only one item can be open at any time however,
+                this option allows you to toggle the active item between active
+                (open) not active (closed)
+              </div>
+            </li>
+            <li>
+              <div>
+                Keep Open: Like Toggle, this option allows you to toggle the
+                items between active (open) and not active (closed). However,
+                unlike the previous two configurations, you can open as many
+                items as you wish.
+              </div>
+            </li>
+          </ul>
+          <div>
+            <h2 className="text-lg font-medium">Try it for yourself</h2>
+            <p>
+              Try enabling and disabling the two attributes. checking these
+              check boxes will toggle the relevant html attribute causing the
+              configuration to take effect.
+            </p>
+            <ul className="list-disc mb-4">
+              <li>
+                <div className="input_container">
+                  <input
+                    type="checkbox"
+                    name="toggle"
+                    id="toggle"
+                    data-attribute="data-toggle-open"
+                    onClick={(e) => process_checkbox(e)}
+                  />
+                  <label className="pl-2" htmlFor="toggle">
+                    Enable/Disable Toggle attribute
+                  </label>
+                </div>
+              </li>
+              <li>
+                <div className="input_container">
+                  <input
+                    type="checkbox"
+                    name="keep_open"
+                    id="keep_open"
+                    data-attribute="data-keep-open"
+                    onClick={(e) => process_checkbox(e)}
+                  />
+                  <label className="pl-2" htmlFor="keep_open">
+                    Enable/Disable Keep Open attribute
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+  ];
 
   const pressme = () => {
     alert("ok");
   };
 
-  const process_checkbox = (e) => {
-    const chk_box = e.target;
-    const attribute = chk_box.getAttribute("data-attribute");
-    const accordion = document.querySelector(".accordion");
-    const chk_box_value = chk_box.checked ? "true" : false;
-
-    accordion.setAttribute(attribute, chk_box_value);
-  };
-
   return (
     <div className="App">
-      <div className="container w-3/6 mx-auto">
-        <div className="input_container">
-          <input
-            type="checkbox"
-            name="toggle"
-            id="toggle"
-            data-attribute="data-toggle-open"
-            onClick={(e) => process_checkbox(e)}
-          />
-          <label className="pl-2" htmlFor="toggle">
-            Enable/Disable Item Toggle (Only one item can be open at a time but
-            you can close the currently open item)
-          </label>
-        </div>
-        <div className="input_container">
-          <input
-            type="checkbox"
-            name="keep_open"
-            id="keep_open"
-            data-attribute="data-keep-open"
-            onClick={(e) => process_checkbox(e)}
-          />
-          <label className="pl-2" htmlFor="keep_open">
-            Enable/Disable keep items open (like toggle but items do not close
-            when selecting another item)
-          </label>
-        </div>
+      <div className="container lg:w-4/6 md:w-5/6 sm:w-full max-w-5xl mx-auto mt-4">
+        <Accordion items={instructions} toggle="true" keep_open="false" />
       </div>
-      <div className="container w-3/6 mx-auto">
+      <div className="container lg:w-4/6 md:w-5/6 sm:w-full max-w-5xl mx-auto mt-4">
+        <h2 className="text-lg font-medium">Demo Accordion</h2>
+      </div>
+      <div className="container lg:w-4/6 md:w-5/6 sm:w-full max-w-5xl mx-auto mt-4">
         <Accordion
+          id="demo_accordion"
           className=""
           items={items}
           toggle="false"
