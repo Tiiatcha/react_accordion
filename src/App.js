@@ -68,7 +68,8 @@ function App() {
             onClick={(e) => process_checkbox(e)}
           />
           <label className="pl-2" htmlFor="toggle">
-            Enable/Disable Item Toggle
+            Enable/Disable Item Toggle (Only one item can be open at a time but
+            you can close the currently open item)
           </label>
         </div>
         <div className="input_container">
@@ -80,7 +81,8 @@ function App() {
             onClick={(e) => process_checkbox(e)}
           />
           <label className="pl-2" htmlFor="keep_open">
-            Enable/Disable keep items open
+            Enable/Disable keep items open (like toggle but items do not close
+            when selecting another item)
           </label>
         </div>
       </div>
