@@ -149,6 +149,7 @@ function App() {
       <div className="container lg:w-4/6 md:w-5/6 sm:w-full max-w-5xl mx-auto mt-4">
         View code on{" "}
         <a
+          className="underline decoration-solid text-blue-700"
           href="https://github.com/Tiiatcha/react_accordion/tree/feedback"
           targe="blank"
         >
