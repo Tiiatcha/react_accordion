@@ -146,6 +146,15 @@ function App() {
           keep_open="false"
         />
       </div>
+      <div className="container lg:w-4/6 md:w-5/6 sm:w-full max-w-5xl mx-auto mt-4">
+        View code on{" "}
+        <a
+          href="https://github.com/Tiiatcha/react_accordion/tree/feedback"
+          targe="blank"
+        >
+          Github
+        </a>
+      </div>
     </div>
   );
 }
