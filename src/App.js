@@ -15,9 +15,10 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<SideNavLayout />}>
       <Route index element={<HomePage />} />
-      <Route path="accordion" element={<AccordionPage />} />
+      <Route path="/accordion" element={<AccordionPage />} />
     </Route>
-  )
+  ),
+  { basename: "/react_accordion" }
 );
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
           Top Nav
         </div>
         <div id="main_container" className="flex flex-row flex-1">
-          <RouterProvider router={router} />
+          <RouterProvider basename="/react_accordion/" router={router} />
         </div>
       </div>
     </div>
